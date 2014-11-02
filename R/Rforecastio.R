@@ -52,10 +52,10 @@ fio.forecast <- function(api.key, latitude, longitude, for.time, time.formatter=
 
   # using RCurl's getURLContent() since it fully supports http or https
   if (missing(for.time)) {
-    fio.json <- getURLContent(url=sprintf("https://api.forecast.io/forecast/%s/%s,%s/?units=si",
+    fio.json <- getURLContent(url=sprintf("https://api.forecast.io/forecast/%s/%s,%s/?units=si&exclude=currently,minutely,daily",
                                       api.key, latitude, longitude), ...)
   } else {
-    fio.json <- getURLContent(url=sprintf("https://api.forecast.io/forecast/%s/%s,%s,%d/?units=si",
+    fio.json <- getURLContent(url=sprintf("https://api.forecast.io/forecast/%s/%s,%s,%d/?units=si&exclude=currently,minutely,daily",
                                       api.key, latitude, longitude, for.time), ...)
   }
 
